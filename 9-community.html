@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quarrai — Design 9: Community</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#005EF5;--soft:#F0F5FF;--peach:#FFF0E8;--mint:#E8F8EF;--lilac:#F2ECFF;--ink:#1E2233;--body:#5A6076;--line:#ECEEF4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;color:var(--body);background:#fff}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 26px}
+h1,h2,h3{color:var(--ink);letter-spacing:-.01em}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:23px;color:var(--ink)}
+.qmark{width:36px;height:36px}
+.nlinks{display:flex;gap:24px;font-weight:600;font-size:15px}
+.nlinks a:hover{color:var(--blue)}
+.cta{background:var(--blue);color:#fff;font-weight:700;padding:11px 20px;border-radius:999px;font-size:15px}
+/* hero */
+.hero{text-align:center;padding:52px 0 20px}
+.avatars{display:flex;justify-content:center;margin-bottom:22px}
+.avatars .a{width:44px;height:44px;border-radius:50%;border:3px solid #fff;margin-left:-12px;display:grid;place-items:center;font-weight:700;color:#fff;font-size:15px}
+.hero h1{font-size:54px;line-height:1.04;font-weight:900;margin-bottom:18px}
+.hero h1 .u{background:linear-gradient(120deg,var(--blue),#00B3A6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:19px;max-width:600px;margin:0 auto 28px}
+.search{max-width:600px;margin:0 auto;display:flex;background:#fff;border:2px solid var(--line);border-radius:999px;padding:6px;box-shadow:0 12px 40px rgba(30,34,51,.07)}
+.search input{flex:1;border:0;outline:0;padding:13px 20px;font-family:inherit;font-size:16px}
+.search button{background:var(--blue);color:#fff;border:0;border-radius:999px;padding:0 26px;font-weight:700;cursor:pointer}
+.trust{margin-top:16px;font-size:14px;color:#98A0B3}
+/* social cards */
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:56px 0}
+.f{border-radius:22px;padding:28px}
+.f .e{font-size:32px;margin-bottom:14px}
+.f h3{font-size:19px;margin-bottom:8px}
+.f p{font-size:14px;line-height:1.55}
+.f1{background:var(--soft)}.f2{background:var(--mint)}.f3{background:var(--lilac)}
+/* testimonials */
+.tsec{background:#FAFBFF;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:56px 0}
+.tsec h2{text-align:center;font-size:30px;margin-bottom:8px}
+.tsec .sub{text-align:center;margin-bottom:34px}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}
+.stars{color:#FFB020;margin-bottom:12px}
+.tc p{font-size:15px;line-height:1.6;color:var(--ink)}
+.who{display:flex;align-items:center;gap:11px;margin-top:18px}
+.who .a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:14px}
+.who .n{font-weight:700;color:var(--ink);font-size:14px}.who .role{font-size:13px}
+/* gamify strip */
+.gami{padding:56px 0;text-align:center}
+.gami h2{font-size:30px;margin-bottom:10px}
+.gami .sub{max-width:560px;margin:0 auto 30px}
+.badges{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.b{width:120px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 10px}
+.b .e{font-size:34px;display:block;margin-bottom:8px}
+.b .n{font-weight:700;color:var(--ink);font-size:14px}
+.b .c{font-size:12px;color:#98A0B3;margin-top:2px}
+footer{background:var(--ink);color:#C7CCDB;text-align:center;padding:44px 26px;font-size:14px}
+@media(max-width:860px){.feats,.tgrid{grid-template-columns:1fr}.hero h1{font-size:40px}.nlinks{display:none}}
+</style></head><body>
+<div class="wrap">
+  <nav><div class="logo"><svg class="qmark" viewBox="0 0 100 100"><defs><linearGradient id="q" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#005EF5"/><stop offset="1" stop-color="#00B3A6"/></linearGradient></defs><text x="50" y="78" font-family="Inter" font-weight="900" font-size="92" text-anchor="middle" fill="url(#q)">Q</text></svg>Quarrai</div>
+    <div class="nlinks"><a>Explore</a><a>Community</a><a>Learning</a><a>Pricing</a></div>
+    <a class="cta">Join free</a>
+  </nav>
+
+  <section class="hero">
+    <div class="avatars">
+      <div class="a" style="background:#005EF5">JO</div><div class="a" style="background:#00B3A6">MA</div><div class="a" style="background:#8B3FE8">RK</div><div class="a" style="background:#F5A524">TS</div><div class="a" style="background:#E8409B">LN</div>
+    </div>
+    <h1>The compliance community<br>that <span class="u">digs together.</span></h1>
+    <p>Join thousands of professionals who stay informed, build skills, and rate the content that matters — earning points and badges along the way.</p>
+    <div class="search"><input placeholder="What do you need to know or learn today?"><button>Dig</button></div>
+    <div class="trust">Free to join · 1,000+ members · 200+ community reviews</div>
+  </section>
+
+  <section class="feats">
+    <div class="f f1"><div class="e">📰</div><h3>Stay Informed</h3><p>A curated feed of compliance news, podcasts, and analysis — rated by peers so you read the best first.</p></div>
+    <div class="f f2"><div class="e">🎓</div><h3>Build Skills</h3><p>Discover and complete quality training, with certifications and CE credits tracked for you.</p></div>
+    <div class="f f3"><div class="e">🏅</div><h3>Earn Recognition</h3><p>Points, badges, and leaderboards reward you for reviewing, sharing, and learning.</p></div>
+  </section>
+</div>
+
+<section class="tsec"><div class="wrap">
+  <h2>Loved by compliance professionals</h2>
+  <p class="sub">Real reviews from the people who use Quarrai every day.</p>
+  <div class="tgrid">
+    <div class="tc"><div class="stars">★★★★★</div><p>"Finally, one place for both the news I need and the training I have to complete. It's my first tab every morning."</p><div class="who"><div class="a" style="background:#005EF5">JO</div><div><div class="n">Jordan O.</div><div class="role">BSA/AML Officer</div></div></div></div>
+    <div class="tc"><div class="stars">★★★★★</div><p>"The community ratings save me hours. I know a course is worth it before I spend a dollar or a minute."</p><div class="who"><div class="a" style="background:#00B3A6">MA</div><div><div class="n">Maria A.</div><div class="role">Sanctions Analyst</div></div></div></div>
+    <div class="tc"><div class="stars">★★★★★</div><p>"The badges are silly-fun but they actually keep my whole team engaged with training. That's a first."</p><div class="who"><div class="a" style="background:#8B3FE8">RK</div><div><div class="n">Raj K.</div><div class="role">Compliance Manager</div></div></div></div>
+  </div>
+</div></section>
+
+<section class="gami"><div class="wrap">
+  <h2>Learning that rewards you</h2>
+  <p class="sub">Earn Review Points and unlock badges as you engage with both knowledge and learning.</p>
+  <div class="badges">
+    <div class="b"><span class="e">🗞️</span><div class="n">News Hawk</div><div class="c">50 items read</div></div>
+    <div class="b"><span class="e">🎧</span><div class="n">Podcast Pro</div><div class="c">10 reviewed</div></div>
+    <div class="b"><span class="e">🔥</span><div class="n">30-Day Streak</div><div class="c">Daily habit</div></div>
+    <div class="b"><span class="e">🏛️</span><div class="n">AML Specialist</div><div class="c">10 courses</div></div>
+    <div class="b"><span class="e">💎</span><div class="n">Review Champion</div><div class="c">50 reviews</div></div>
+  </div>
+</div></section>
+
+<footer>Quarrai — Compliance Knowledge &amp; Learning Platform · Design concept 9: “Community”</footer>
+</body></html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quarrai — Design 1: Clarity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#005EF5;--ink:#101828;--body:#475467;--line:#EAECF0;--bg:#F9FAFB;--soft:#EFF4FF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;color:var(--body);background:#fff;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{color:var(--ink);letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+/* nav */
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink)}
+.qmark{width:34px;height:34px}
+.navlinks{display:flex;gap:28px;font-weight:500;font-size:15px}
+.navlinks a:hover{color:var(--blue)}
+.navbtns{display:flex;gap:12px;align-items:center}
+.btn{font-weight:600;font-size:15px;padding:10px 18px;border-radius:8px;cursor:pointer;border:0}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.solid{background:var(--blue);color:#fff}
+.btn.solid:hover{background:#004ad1}
+/* hero */
+.hero{text-align:center;padding:76px 0 40px}
+.pill{display:inline-block;background:var(--soft);color:var(--blue);font-weight:600;font-size:13px;padding:6px 14px;border-radius:999px;margin-bottom:22px}
+.hero h1{font-size:56px;line-height:1.05;font-weight:800;margin-bottom:20px}
+.hero h1 .g{background:linear-gradient(90deg,#005EF5,#8B3FE8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:20px;max-width:640px;margin:0 auto 34px}
+.search{max-width:660px;margin:0 auto;display:flex;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:6px;box-shadow:0 8px 30px rgba(16,24,40,.06)}
+.search input{flex:1;border:0;outline:0;font-size:16px;padding:14px 16px;font-family:inherit}
+.search .btn.solid{border-radius:8px;padding:0 26px}
+.subnote{font-size:13px;color:#98A2B3;margin-top:14px}
+/* pillars */
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:56px 0}
+.pcard{border:1px solid var(--line);border-radius:16px;padding:32px;transition:.2s}
+.pcard:hover{box-shadow:0 12px 40px rgba(16,24,40,.08);transform:translateY(-3px)}
+.pcard .ico{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;font-size:26px;margin-bottom:18px}
+.pcard.k .ico{background:#EFF4FF}.pcard.l .ico{background:#F3EEFF}
+.pcard h3{font-size:24px;margin-bottom:8px}
+.tagk{color:var(--blue);font-weight:600;font-size:14px}.tagl{color:#8B3FE8;font-weight:600;font-size:14px}
+.pcard p{margin:12px 0 18px;font-size:15px}
+.pcard ul{list-style:none;font-size:14px}.pcard li{padding:5px 0 5px 24px;position:relative}
+.pcard li:before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:700}
+/* sections */
+.sec{padding:24px 0 64px}
+.sec>h2{font-size:15px;text-transform:uppercase;letter-spacing:.08em;color:#98A2B3;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border:1px solid var(--line);border-radius:14px;padding:22px}
+.card .lbl{font-weight:700;color:var(--ink);font-size:17px;margin-bottom:4px}
+.card .sub{font-size:14px;color:var(--body);line-height:1.5}
+.card .chip{display:inline-block;font-size:12px;font-weight:600;padding:4px 10px;border-radius:6px;background:var(--soft);color:var(--blue);margin-top:16px}
+/* stats */
+.stats{background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:44px 0;display:flex;justify-content:space-around;text-align:center}
+.stats .n{font-size:38px;font-weight:800;color:var(--ink)}
+.stats .t{font-size:14px;margin-top:4px}
+footer{padding:48px 0;text-align:center;color:#98A2B3;font-size:14px}
+@media(max-width:820px){.pillars,.grid{grid-template-columns:1fr}.hero h1{font-size:40px}.navlinks{display:none}}
+</style></head>
+<body>
+<div class="wrap">
+  <nav>
+    <div class="logo"><svg class="qmark" viewBox="0 0 100 100"><defs><linearGradient id="q1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#005EF5"/><stop offset=".5" stop-color="#8B3FE8"/><stop offset="1" stop-color="#E8409B"/></linearGradient></defs><text x="50" y="74" font-family="Inter" font-weight="800" font-size="82" text-anchor="middle" fill="url(#q1)">Q</text></svg>Quarrai</div>
+    <div class="navlinks"><a>Explore</a><a>Knowledge</a><a>Learning</a><a>Providers</a><a>Pricing</a></div>
+    <div class="navbtns"><button class="btn ghost">Log in</button><button class="btn solid">Sign up</button></div>
+  </nav>
+
+  <section class="hero">
+    <span class="pill">The compliance professional's homepage</span>
+    <h1>Drill down. Your <span class="g">information goldmine</span><br>is just a search away.</h1>
+    <p>One platform to stay informed and build skills — compliance news, podcasts, and articles alongside the training and certifications that keep you sharp.</p>
+    <div class="search"><input placeholder="Search AML, sanctions, crypto regulation, FinCEN…"><button class="btn solid">Search</button></div>
+    <div class="subnote">Search · Explore · View All — free to browse</div>
+  </section>
+
+  <section class="pillars">
+    <div class="pcard k"><div class="ico">📰</div><span class="tagk">KNOWLEDGE</span><h3>Stay Informed</h3><p>Where insights surface daily. Your go-to source for AML, sanctions, financial crime, and crypto regulation news.</p><ul><li>Curated news feed &amp; regulatory alerts</li><li>Podcasts, articles &amp; enforcement analyses</li><li>Rated and reviewed by the community</li></ul></div>
+    <div class="pcard l"><div class="ico">🎓</div><span class="tagl">LEARNING</span><h3>Build Skills</h3><p>Discover, compare, and complete quality compliance training — all in one place, with credits tracked for you.</p><ul><li>Courses, certifications &amp; webinars</li><li>Curated learning paths by role</li><li>CPE/CE tracking &amp; audit-ready records</li></ul></div>
+  </section>
+
+  <section class="wrap sec" style="padding-top:0">
+    <h2>Dig into today's content</h2>
+    <div class="grid">
+      <div class="card"><div class="lbl">Freshly Mined · Trending</div><div class="sub">The stories moving the compliance world right now.</div><span class="chip">Knowledge</span></div>
+      <div class="card"><div class="lbl">Curated Cuts</div><div class="sub">We dig, so you don't have to — hand-picked for subscribers.</div><span class="chip">Knowledge</span></div>
+      <div class="card"><div class="lbl">Learning Paths</div><div class="sub">Structured sequences for BSA/AML, sanctions, and fraud roles.</div><span class="chip" style="background:#F3EEFF;color:#8B3FE8">Learning</span></div>
+    </div>
+  </section>
+</div>
+
+<div class="stats">
+  <div><div class="n">300+</div><div class="t">Knowledge listings</div></div>
+  <div><div class="n">200+</div><div class="t">Courses &amp; certifications</div></div>
+  <div><div class="n">50+</div><div class="t">Content providers</div></div>
+  <div><div class="n">4.8★</div><div class="t">Community rated</div></div>
+</div>
+
+<footer>Quarrai — Compliance Knowledge &amp; Learning Platform · Design concept 1: “Clarity”</footer>
+</body></html>

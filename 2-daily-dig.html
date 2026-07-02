@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quarrai — Design 2: Daily Dig</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#005EF5;--ink:#0B1220;--body:#3F4B5B;--line:#E4E8EE;--bg:#F6F8FB;--gold:#C08A2D}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;color:var(--body);background:var(--bg)}
+a{color:inherit;text-decoration:none}
+.mast{background:#fff;border-bottom:2px solid var(--ink)}
+.mastin{max-width:1240px;margin:0 auto;padding:10px 24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#7A8698}
+.masttop{border-bottom:1px solid var(--line)}
+.brandrow{max-width:1240px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .name{font-family:Fraunces,serif;font-weight:700;font-size:40px;color:var(--ink);letter-spacing:-.01em}
+.brand .tag{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:600;border-left:1px solid var(--line);padding-left:12px}
+.qmark{width:40px;height:40px}
+.searchmini{display:flex;border:1.5px solid var(--ink);border-radius:6px;overflow:hidden}
+.searchmini input{border:0;outline:0;padding:9px 12px;font-family:inherit;font-size:14px;width:260px}
+.searchmini button{background:var(--ink);color:#fff;border:0;padding:0 16px;font-weight:600;cursor:pointer}
+.subnav{background:var(--ink)}
+.subnavin{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;gap:26px}
+.subnavin a{color:#C7D0DC;font-weight:500;font-size:14px;padding:12px 0}
+.subnavin a:hover,.subnavin a.on{color:#fff;box-shadow:inset 0 -3px 0 var(--blue)}
+/* layout */
+.grid{max-width:1240px;margin:24px auto;padding:0 24px;display:grid;grid-template-columns:1fr 2.3fr 1fr;gap:26px}
+.col h4{font-family:Inter;text-transform:uppercase;font-size:12px;letter-spacing:.1em;color:#8592A3;border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:14px;font-weight:700}
+.rail a{display:block;padding:9px 0;font-weight:600;color:var(--ink);font-size:14px;border-bottom:1px solid var(--line)}
+.rail a:hover{color:var(--blue)}
+.rail .k{color:var(--blue)}.rail .l{color:#8B3FE8}
+/* lead */
+.lead{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:18px}
+.lead .band{height:6px;background:linear-gradient(90deg,#005EF5,#8B3FE8,#E8409B)}
+.lead .in{padding:26px}
+.kick{color:var(--blue);font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.08em}
+.lead h1{font-family:Fraunces,serif;font-size:34px;line-height:1.1;color:var(--ink);margin:8px 0 12px}
+.lead p{font-size:16px;line-height:1.6}
+.meta{margin-top:14px;font-size:13px;color:#8592A3}
+.feed .item{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:14px;display:flex;gap:16px;align-items:flex-start}
+.feed .item:hover{border-color:var(--blue)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--blue);margin-top:7px;flex:none}
+.dot.l{background:#8B3FE8}
+.feed h3{font-family:Fraunces,serif;color:var(--ink);font-size:19px;margin-bottom:4px}
+.feed .m{font-size:13px;color:#8592A3}
+.badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;background:#EFF4FF;color:var(--blue);text-transform:uppercase;letter-spacing:.04em}
+.badge.l{background:#F3EEFF;color:#8B3FE8}
+/* leaderboard */
+.lb{background:var(--ink);border-radius:10px;padding:18px;color:#fff}
+.lb h4{color:#fff;border-color:#28344A}
+.lb .row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #1E293B;font-size:14px}
+.lb .row span:first-child{color:#C7D0DC}.lb .pts{color:#6BE39B;font-weight:700}
+.ad{margin-top:16px;background:#fff;border:1px dashed var(--line);border-radius:10px;padding:20px;text-align:center;font-size:13px;color:#8592A3}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.searchmini,.brand .tag{display:none}}
+</style></head>
+<body>
+<div class="mast masttop"><div class="mastin"><span>Thursday, July 2, 2026 · The daily compliance briefing</span><span>Sign in · Join free</span></div></div>
+<div class="brandrow">
+  <div class="brand"><svg class="qmark" viewBox="0 0 100 100"><defs><linearGradient id="q" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#005EF5"/><stop offset=".5" stop-color="#8B3FE8"/><stop offset="1" stop-color="#E8409B"/></linearGradient></defs><text x="50" y="76" font-weight="700" font-size="88" text-anchor="middle" fill="url(#q)" font-family="Fraunces,serif">Q</text></svg>
+    <span class="name">Quarrai</span><span class="tag">Know &amp; Learn</span></div>
+  <div class="searchmini"><input placeholder="Search the goldmine…"><button>Dig</button></div>
+</div>
+<div class="subnav"><div class="subnavin"><a class="on">Today</a><a>News Feed</a><a>Podcasts</a><a>Enforcement</a><a>Courses</a><a>Certifications</a><a>Learning Paths</a><a>Providers</a></div></div>
+
+<div class="grid">
+  <div class="col rail">
+    <h4>Topics</h4>
+    <a class="k">AML / BSA</a><a class="k">Sanctions &amp; OFAC</a><a class="k">Financial Crime</a><a class="k">Crypto &amp; Digital Assets</a><a class="k">Fraud</a>
+    <h4 style="margin-top:22px">Learning</h4>
+    <a class="l">Certifications</a><a class="l">Webinars</a><a class="l">Learning Paths</a><a class="l">CPE / CE Tracker</a>
+  </div>
+
+  <div class="col feed">
+    <div class="lead"><div class="band"></div><div class="in">
+      <span class="kick">Freshly Mined · Trending Now</span>
+      <h1>Where insights surface daily.</h1>
+      <p>Your go-to source for headlines and expert insight on anti-money laundering, global sanctions, financial crime, and the evolving world of crypto regulation — surfaced so you stay ahead in a fast-moving landscape.</p>
+      <div class="meta">Curated by the Quarrai community · 42 new items today</div>
+    </div></div>
+    <h4>The News Vein</h4>
+    <div class="item"><span class="dot"></span><div><span class="badge">News</span><h3>FinCEN issues new guidance on beneficial ownership reporting</h3><div class="m">Regulatory Update · 2h ago · ★ 4.9 · 128 saves</div></div></div>
+    <div class="item"><span class="dot"></span><div><span class="badge">Podcast</span><h3>Sanctions Spotlight: what the latest OFAC designations mean</h3><div class="m">Podcast · 5h ago · ★ 4.7 · 64 reviews</div></div></div>
+    <div class="item"><span class="dot l"></span><div><span class="badge l">Course</span><h3>AML Foundations — a certified path for new analysts</h3><div class="m">Learning · Provider: ACFCS · ★ 4.8 · 210 enrolled</div></div></div>
+    <div class="item"><span class="dot"></span><div><span class="badge">Analysis</span><h3>Enforcement breakdown: the $50M crypto exchange settlement</h3><div class="m">Enforcement Analysis · 1d ago · ★ 4.6</div></div></div>
+  </div>
+
+  <div class="col">
+    <div class="lb"><h4>Weekly Top Reviewers</h4>
+      <div class="row"><span>1 · Compliance Leader</span><span class="pts">1,540</span></div>
+      <div class="row"><span>2 · J. Okafor</span><span class="pts">1,210</span></div>
+      <div class="row"><span>3 · M. Alvarez</span><span class="pts">980</span></div>
+      <div class="row"><span>4 · You</span><span class="pts">640</span></div>
+    </div>
+    <div class="ad"><strong style="color:#0B1220">Providers</strong><br>List your training or podcast free.<br>Reach thousands of compliance pros.<br><br><span class="badge">Premium listing $199/mo</span></div>
+  </div>
+</div>
+</body></html>

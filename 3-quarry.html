@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quarrai — Design 3: Quarry</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#005EF5;--purple:#8B3FE8;--pink:#E8409B;--amber:#F5A524;--green:#39B54A;--teal:#12BFC4;--ink:#241C33;--body:#5A5268;--cream:#FBF7F0;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;color:var(--body);background:var(--cream)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 26px}
+h1,h2,h3{font-family:Sora,sans-serif;color:var(--ink)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.logo{display:flex;align-items:center;gap:12px;font-family:Sora;font-weight:800;font-size:26px;color:var(--ink)}
+.qmark{width:44px;height:44px}
+.navlinks{display:flex;gap:26px;font-weight:600;font-size:15px}
+.navlinks a:hover{color:var(--purple)}
+.cta{background:var(--ink);color:#fff;font-weight:700;padding:12px 22px;border-radius:999px;border:0;cursor:pointer;font-size:15px}
+/* hero */
+.hero{text-align:center;padding:50px 0 30px}
+.hero h1{font-size:64px;line-height:1.02;font-weight:800;letter-spacing:-.02em;margin-bottom:20px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink),var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:20px;max-width:600px;margin:0 auto 30px;color:var(--body)}
+.search{max-width:620px;margin:0 auto;display:flex;background:#fff;border:2px solid var(--ink);border-radius:999px;padding:7px;box-shadow:8px 8px 0 rgba(36,28,51,.12)}
+.search input{flex:1;border:0;outline:0;font-size:17px;padding:12px 20px;font-family:inherit;background:transparent}
+.search button{background:linear-gradient(90deg,var(--blue),var(--purple));color:#fff;border:0;border-radius:999px;padding:0 30px;font-weight:700;font-size:16px;cursor:pointer}
+.chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.chip{background:#fff;border:1.5px solid #EAE3D6;border-radius:999px;padding:8px 16px;font-weight:600;font-size:14px;color:var(--ink)}
+.chip:hover{border-color:var(--ink)}
+/* sections */
+.stripe{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;padding:34px 0}
+.tag{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px}
+.t1{background:#E7EEFF;color:var(--blue)}.t2{background:#F5E9FF;color:var(--purple)}.t3{background:#FFECF6;color:var(--pink)}.t4{background:#FFF2DD;color:#B9791A}.t5{background:#E4F7E7;color:#2C8A38}
+.dig{padding:20px 0 70px}
+.dighead{display:flex;align-items:baseline;gap:14px;margin:38px 0 20px}
+.dighead h2{font-size:30px;font-weight:800}
+.dighead .sub{color:var(--body);font-size:16px;font-weight:600}
+.row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.gcard{background:var(--card);border-radius:20px;padding:22px;border:1.5px solid #EFE8DA;transition:.18s}
+.gcard:hover{transform:translate(-4px);box-shadow:6px 10px 0 rgba(36,28,51,.1);border-color:var(--ink)}
+.gcard .em{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:24px;margin-bottom:14px}
+.gcard h3{font-size:18px;font-weight:700;margin-bottom:6px;font-family:Inter}
+.gcard p{font-size:14px;line-height:1.5}
+.gcard .foot{margin-top:16px;font-size:13px;font-weight:700}
+.big{grid-column:span 2;background:linear-gradient(135deg,var(--ink),#3A2B57);color:#fff}
+.big h3,.big h2{color:#fff}
+.big .foot{color:#C9B8F0}
+/* footer band */
+.band{background:var(--ink);color:#fff;text-align:center;padding:56px 26px}
+.band h2{color:#fff;font-size:36px;margin-bottom:12px}
+.band p{color:#C6BDD6;max-width:520px;margin:0 auto 24px}
+.band button{background:linear-gradient(90deg,var(--amber),var(--pink));color:#fff;border:0;padding:15px 32px;border-radius:999px;font-weight:800;font-size:16px;cursor:pointer}
+@media(max-width:900px){.row{grid-template-columns:1fr 1fr}.big{grid-column:span 2}.hero h1{font-size:42px}.navlinks{display:none}}
+</style></head>
+<body>
+<div class="wrap">
+  <nav>
+    <div class="logo"><svg class="qmark" viewBox="0 0 100 100"><defs><linearGradient id="q" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#005EF5"/><stop offset=".33" stop-color="#8B3FE8"/><stop offset=".66" stop-color="#E8409B"/><stop offset="1" stop-color="#F5A524"/></linearGradient></defs><text x="50" y="78" font-family="Sora" font-weight="800" font-size="92" text-anchor="middle" fill="url(#q)">Q</text></svg>Quarrai</div>
+    <div class="navlinks"><a>Explore</a><a>News Vein</a><a>Learning</a><a>Gems</a><a>Providers</a></div>
+    <button class="cta">Start digging →</button>
+  </nav>
+
+  <section class="hero">
+    <h1>We dig,<br>so you <em>don't have to.</em></h1>
+    <p>Your information goldmine for compliance — news, podcasts, and training, all in one place, rated by the people who use it.</p>
+    <div class="search"><input placeholder="Search AML, sanctions, crypto, FinCEN…"><button>Dig in</button></div>
+    <div class="chips"><span class="chip">🔎 Search</span><span class="chip">🧭 Explore</span><span class="chip">📋 View all</span></div>
+  </section>
+
+  <div class="stripe">
+    <span class="tag t1">📰 News Vein</span><span class="tag t2">🎧 Podcasts</span><span class="tag t3">🔥 Trending</span><span class="tag t4">💎 Gems</span><span class="tag t5">🎓 Learning</span>
+  </div>
+
+  <section class="dig">
+    <div class="dighead"><h2>Freshly Mined.</h2><span class="sub">Trending now, unearthed daily.</span></div>
+    <div class="row">
+      <div class="gcard big"><div class="em" style="background:rgba(255,255,255,.14)">💎</div><h2 style="font-size:24px">Rare Finds. Real Insight.</h2><p style="color:#D8CEEA;margin-top:8px">The Gems section — subscriber-only deep cuts our community rated highest this week across AML, sanctions, and crypto.</p><div class="foot">Reserved for members · Join to explore →</div></div>
+      <div class="gcard"><div class="em" style="background:#E7EEFF">📰</div><h3>Where Insights Surface Daily</h3><p>Headlines on AML, sanctions &amp; crypto regulation.</p><div class="foot" style="color:var(--blue)">Knowledge</div></div>
+      <div class="gcard"><div class="em" style="background:#E4F7E7">🎓</div><h3>Build Skills</h3><p>Courses, certs &amp; learning paths by role.</p><div class="foot" style="color:#2C8A38">Learning</div></div>
+    </div>
+    <div class="dighead"><h2>Curated Cuts.</h2><span class="sub">Unearthing what matters, every day.</span></div>
+    <div class="row">
+      <div class="gcard"><div class="em" style="background:#FFECF6">🔥</div><h3>Enforcement Watch</h3><p>The latest actions, analyzed.</p><div class="foot" style="color:var(--pink)">Knowledge</div></div>
+      <div class="gcard"><div class="em" style="background:#F5E9FF">🏅</div><h3>Earn as you learn</h3><p>Points, badges &amp; streaks for every review.</p><div class="foot" style="color:var(--purple)">Gamified</div></div>
+      <div class="gcard"><div class="em" style="background:#FFF2DD">🎧</div><h3>Podcast Directory</h3><p>The best compliance audio, rated.</p><div class="foot" style="color:#B9791A">Knowledge</div></div>
+      <div class="gcard"><div class="em" style="background:#E7EEFF">🧭</div><h3>Learning Paths</h3><p>Structured routes for every role.</p><div class="foot" style="color:var(--blue)">Learning</div></div>
+    </div>
+  </section>
+</div>
+<div class="band"><h2>Your compliance homepage awaits.</h2><p>Join thousands of professionals who start their day in the quarry.</p><button>Create your free account</button></div>
+</body></html>

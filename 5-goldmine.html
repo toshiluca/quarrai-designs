@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quarrai — Design 5: Goldmine (search-first)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#005EF5;--ink:#12161F;--body:#5B6472;--line:#E9ECF1;--soft:#F4F7FE}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;color:var(--body);background:
+  radial-gradient(1100px 500px at 50% -8%,rgba(0,94,245,.09),transparent 60%),#fff;min-height:100vh}
+a{color:inherit;text-decoration:none}
+.bar{display:flex;justify-content:space-between;align-items:center;max-width:1080px;margin:0 auto;padding:20px 26px;font-size:14px;font-weight:600}
+.bar .r{display:flex;gap:22px;align-items:center;color:var(--ink)}
+.bar .r a:hover{color:var(--blue)}
+.signup{background:var(--ink);color:#fff;padding:9px 18px;border-radius:8px}
+/* stage */
+.stage{max-width:760px;margin:0 auto;padding:66px 26px 20px;text-align:center}
+.logo{display:inline-flex;align-items:center;gap:14px;margin-bottom:26px}
+.qmark{width:66px;height:66px}
+.logo .w{font-size:44px;font-weight:900;color:var(--ink);letter-spacing:-.02em}
+.stage h1{font-size:30px;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-bottom:8px}
+.stage .sub{font-size:17px;margin-bottom:30px}
+.searchbig{display:flex;align-items:center;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:8px 8px 8px 20px;box-shadow:0 16px 50px rgba(0,94,245,.12);transition:.2s}
+.searchbig:focus-within{border-color:var(--blue);box-shadow:0 16px 60px rgba(0,94,245,.22)}
+.searchbig .ic{font-size:20px;color:var(--blue)}
+.searchbig input{flex:1;border:0;outline:0;font-size:18px;padding:14px 14px;font-family:inherit}
+.searchbig button{background:var(--blue);color:#fff;border:0;border-radius:11px;padding:14px 28px;font-weight:700;font-size:16px;cursor:pointer}
+.searchbig button:hover{background:#004ad1}
+.tabs{display:flex;gap:8px;justify-content:center;margin:18px 0 8px}
+.tab{font-size:14px;font-weight:600;padding:8px 16px;border-radius:999px;color:var(--body);border:1px solid var(--line)}
+.tab.on{background:var(--soft);color:var(--blue);border-color:#cfe0ff}
+.quick{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:16px;font-size:13px}
+.quick span{color:#8A94A6}.quick a{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-weight:600;color:var(--ink)}
+.quick a:hover{border-color:var(--blue);color:var(--blue)}
+/* sections below the fold */
+.explore{max-width:1080px;margin:60px auto 0;padding:0 26px}
+.eh{text-align:center;margin-bottom:26px}
+.eh h2{color:var(--ink);font-size:22px;font-weight:800}
+.eh p{font-size:15px;margin-top:6px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-bottom:80px}
+.sec{border:1px solid var(--line);border-radius:16px;padding:22px;background:#fff;transition:.16s}
+.sec:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 14px 34px rgba(16,22,31,.08)}
+.sec .top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.sec .em{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;font-size:22px}
+.sec h3{color:var(--ink);font-size:17px;font-weight:700}
+.sec .kl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.k{color:var(--blue)}.l{color:#8B3FE8}
+.sec p{font-size:14px;line-height:1.5}
+.sec .n{margin-top:14px;font-size:13px;font-weight:600;color:#8A94A6}
+@media(max-width:840px){.grid{grid-template-columns:1fr}.bar .r a{display:none}}
+</style></head>
+<body>
+<div class="bar">
+  <strong style="color:var(--ink);font-size:16px">Quarrai</strong>
+  <div class="r"><a>Explore</a><a>Providers</a><a>Pricing</a><a>Log in</a><a class="signup">Sign up free</a></div>
+</div>
+
+<section class="stage">
+  <div class="logo">
+    <svg class="qmark" viewBox="0 0 100 100"><defs><linearGradient id="q" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#005EF5"/><stop offset=".5" stop-color="#8B3FE8"/><stop offset="1" stop-color="#E8409B"/></linearGradient></defs><text x="50" y="78" font-family="Inter" font-weight="900" font-size="94" text-anchor="middle" fill="url(#q)">Q</text></svg>
+    <span class="w">Quarrai</span>
+  </div>
+  <h1>Your information goldmine is just a search away.</h1>
+  <p class="sub">Drill down into compliance news, podcasts, and training — all in one place.</p>
+
+  <div class="searchbig"><span class="ic">🔎</span><input placeholder="Try “beneficial ownership”, “OFAC sanctions”, “AML certification”…"><button>Search</button></div>
+
+  <div class="tabs"><span class="tab on">Everything</span><span class="tab">Knowledge</span><span class="tab">Learning</span><span class="tab">Providers</span><span class="tab">Podcasts</span></div>
+  <div class="quick"><span>Popular:</span><a>FinCEN</a><a>Sanctions</a><a>Crypto regulation</a><a>BSA/AML</a><a>Fraud</a><a>CAMS prep</a></div>
+</section>
+
+<section class="explore">
+  <div class="eh"><h2>Or explore the sections</h2><p>We dig, so you don't have to.</p></div>
+  <div class="grid">
+    <div class="sec"><div class="top"><div class="em" style="background:#EEF3FF">📰</div><div><h3>News Feed</h3><span class="kl k">Knowledge</span></div></div><p>Where insights surface daily — AML, sanctions &amp; crypto headlines.</p><div class="n">42 new today</div></div>
+    <div class="sec"><div class="top"><div class="em" style="background:#FFF1E6">🔥</div><div><h3>Trending</h3><span class="kl k">Knowledge</span></div></div><p>Freshly mined. What the compliance world is reading right now.</p><div class="n">Updated hourly</div></div>
+    <div class="sec"><div class="top"><div class="em" style="background:#FEF7DF">💎</div><div><h3>Gems</h3><span class="kl k">Members</span></div></div><p>Rare finds, real insight. Subscriber-only deep cuts.</p><div class="n">Join to explore</div></div>
+    <div class="sec"><div class="top"><div class="em" style="background:#F3EEFF">🎓</div><div><h3>Courses</h3><span class="kl l">Learning</span></div></div><p>Discover, compare &amp; complete quality compliance training.</p><div class="n">200+ listings</div></div>
+    <div class="sec"><div class="top"><div class="em" style="background:#F3EEFF">🧭</div><div><h3>Learning Paths</h3><span class="kl l">Learning</span></div></div><p>Structured routes for BSA/AML, sanctions &amp; fraud roles.</p><div class="n">Curated by experts</div></div>
+    <div class="sec"><div class="top"><div class="em" style="background:#EEF3FF">🎧</div><div><h3>Podcasts</h3><span class="kl k">Knowledge</span></div></div><p>The best compliance audio, aggregated and rated.</p><div class="n">Directory</div></div>
+  </div>
+</section>
+</body></html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quarrai — Design 4: Vault (app dashboard)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#3B82F6;--blue2:#60A5FA;--bg:#0B0F1A;--panel:#121826;--panel2:#171F2E;--line:#232B3B;--txt:#E6EAF2;--mut:#8A94A6;--green:#34D399;--purple:#A78BFA;--amber:#FBBF24}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;background:var(--bg);color:var(--txt);display:flex;min-height:100vh}
+a{color:inherit;text-decoration:none}
+/* sidebar */
+.side{width:230px;background:var(--panel);border-right:1px solid var(--line);padding:20px 14px;flex:none}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;padding:6px 8px 22px}
+.qmark{width:32px;height:32px}
+.side .grp{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);margin:18px 8px 8px}
+.side a{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:9px;color:#C2CAD8;font-weight:500;font-size:14px}
+.side a:hover{background:var(--panel2)}
+.side a.on{background:linear-gradient(90deg,rgba(59,130,246,.22),transparent);color:#fff;box-shadow:inset 3px 0 0 var(--blue)}
+.side .ic{width:18px;text-align:center}
+/* main */
+.main{flex:1;padding:24px 30px;overflow:auto}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.hello h1{font-size:24px}.hello p{color:var(--mut);font-size:14px;margin-top:3px}
+.search{background:var(--panel);border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;padding:0 14px;width:340px}
+.search input{background:transparent;border:0;outline:0;color:var(--txt);padding:11px 10px;font-family:inherit;font-size:14px;width:100%}
+.av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));display:grid;place-items:center;font-weight:700;font-size:14px;color:#fff}
+.hdr{display:flex;gap:14px;align-items:center}
+/* stat cards */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:22px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+.stat .k{color:var(--mut);font-size:13px;display:flex;align-items:center;gap:7px}
+.stat .v{font-size:28px;font-weight:800;margin-top:8px}
+.stat .d{font-size:12px;margin-top:4px}.up{color:var(--green)}
+.bar{height:6px;background:var(--panel2);border-radius:4px;margin-top:12px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--purple))}
+/* columns */
+.cols{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:20px}
+.card h3{font-size:15px;display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.card h3 a{font-size:12px;color:var(--blue2);font-weight:600}
+.course{display:flex;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.course:last-child{border:0}
+.thumb{width:46px;height:46px;border-radius:10px;flex:none;display:grid;place-items:center;font-size:22px}
+.tk{background:rgba(59,130,246,.15)}.tl{background:rgba(167,139,250,.15)}.tg{background:rgba(52,211,153,.15)}
+.course .nm{font-weight:600;font-size:14px}.course .mt{color:var(--mut);font-size:12px;margin-top:2px}
+.tagx{margin-left:auto;font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px}
+.xk{background:rgba(59,130,246,.15);color:var(--blue2)}.xl{background:rgba(167,139,250,.15);color:var(--purple)}
+/* leaderboard + badges */
+.lbrow{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.lbrow:last-child{border:0}
+.rank{width:22px;height:22px;border-radius:50%;background:var(--panel2);display:inline-grid;place-items:center;font-size:12px;font-weight:700;margin-right:10px;color:var(--mut)}
+.rank.g{background:var(--amber);color:#3a2a00}
+.pts{color:var(--green);font-weight:700}
+.badges{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;text-align:center}
+.bdg{background:var(--panel2);border-radius:12px;padding:12px 6px;font-size:11px;color:var(--mut)}
+.bdg .e{font-size:24px;display:block;margin-bottom:5px}
+.bdg.lock{opacity:.4}
+.lvl{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.lvl .ring{width:52px;height:52px;border-radius:50%;background:conic-gradient(var(--blue) 68%,var(--panel2) 0);display:grid;place-items:center;flex:none}
+.lvl .ring b{width:40px;height:40px;border-radius:50%;background:var(--panel);display:grid;place-items:center;font-size:15px;color:#fff}
+@media(max-width:1000px){.side{display:none}.stats,.cols,.badges{grid-template-columns:1fr 1fr}.cols{grid-template-columns:1fr}}
+</style></head>
+<body>
+<aside class="side">
+  <div class="brand"><svg class="qmark" viewBox="0 0 100 100"><defs><linearGradient id="q" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B82F6"/><stop offset=".5" stop-color="#A78BFA"/><stop offset="1" stop-color="#F472B6"/></linearGradient></defs><text x="50" y="76" font-family="Inter" font-weight="800" font-size="86" text-anchor="middle" fill="url(#q)">Q</text></svg>Quarrai</div>
+  <a class="on"><span class="ic">🏠</span> Dashboard</a>
+  <div class="grp">Knowledge</div>
+  <a><span class="ic">📰</span> News Feed</a><a><span class="ic">🎧</span> Podcasts</a><a><span class="ic">⚖️</span> Enforcement</a>
+  <div class="grp">Learning</div>
+  <a><span class="ic">🎓</span> Courses</a><a><span class="ic">🧭</span> Learning Paths</a><a><span class="ic">📜</span> Certifications</a><a><span class="ic">✅</span> CPE / CE Tracker</a>
+  <div class="grp">You</div>
+  <a><span class="ic">🏅</span> Achievements</a><a><span class="ic">🔖</span> Saved</a><a><span class="ic">⚙️</span> Settings</a>
+</aside>
+
+<main class="main">
+  <div class="top">
+    <div class="hello"><h1>Good morning, Kim 👋</h1><p>You're on a 12-day streak — dig in and keep it alive.</p></div>
+    <div class="hdr"><div class="search">🔎<input placeholder="Search the goldmine…"></div><div class="av">K</div></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="k">💎 Review Points</div><div class="v">640</div><div class="d up">▲ 45 this week</div></div>
+    <div class="stat"><div class="k">🔥 Streak</div><div class="v">12 days</div><div class="d" style="color:var(--mut)">Best: 30</div></div>
+    <div class="stat"><div class="k">📈 Level 3 · Reviewer</div><div class="v">640/1500</div><div class="bar"><i style="width:43%"></i></div></div>
+    <div class="stat"><div class="k">🎓 In progress</div><div class="v">3 courses</div><div class="d up">2 certs earned</div></div>
+  </div>
+
+  <div class="cols">
+    <div>
+      <div class="card"><h3>Continue learning <a>View all</a></h3>
+        <div class="course"><div class="thumb tl">🎓</div><div><div class="nm">AML Foundations — Certified Path</div><div class="mt">ACFCS · 62% complete</div></div><span class="tagx xl">Learning</span></div>
+        <div class="course"><div class="thumb tg">📜</div><div><div class="nm">Sanctions Screening Essentials</div><div class="mt">Provider: OFAC Academy · 3 modules left</div></div><span class="tagx xl">Learning</span></div>
+      </div>
+      <div class="card"><h3>Freshly mined for you <a>News Feed</a></h3>
+        <div class="course"><div class="thumb tk">📰</div><div><div class="nm">FinCEN updates beneficial ownership guidance</div><div class="mt">Regulatory Update · ★ 4.9 · +2 pts to read</div></div><span class="tagx xk">Knowledge</span></div>
+        <div class="course"><div class="thumb tk">🎧</div><div><div class="nm">Sanctions Spotlight: latest OFAC designations</div><div class="mt">Podcast · 38 min · +10 pts to review</div></div><span class="tagx xk">Knowledge</span></div>
+        <div class="course"><div class="thumb tk">⚖️</div><div><div class="nm">$50M crypto exchange settlement, analyzed</div><div class="mt">Enforcement Analysis · ★ 4.6</div></div><span class="tagx xk">Knowledge</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card"><h3>Your level</h3>
+        <div class="lvl"><div class="ring"><b>3</b></div><div><div style="font-weight:700">Reviewer</div><div style="color:var(--mut);font-size:13px">860 pts to Expert</div></div></div>
+        <div style="font-size:12px;color:var(--mut)">Unlocks at L4: priority recommendations · early features</div>
+      </div>
+      <div class="card"><h3>Weekly leaderboard <a>All</a></h3>
+        <div class="lbrow"><span><span class="rank g">1</span>Compliance Leader</span><span class="pts">1,540</span></div>
+        <div class="lbrow"><span><span class="rank">2</span>J. Okafor</span><span class="pts">1,210</span></div>
+        <div class="lbrow"><span><span class="rank">3</span>M. Alvarez</span><span class="pts">980</span></div>
+        <div class="lbrow"><span><span class="rank">7</span>You</span><span class="pts">640</span></div>
+      </div>
+      <div class="card"><h3>Badges</h3>
+        <div class="badges">
+          <div class="bdg"><span class="e">🗞️</span>News Hawk</div>
+          <div class="bdg"><span class="e">🎧</span>Podcast Pro</div>
+          <div class="bdg"><span class="e">🔥</span>7-Day</div>
+          <div class="bdg lock"><span class="e">🏛️</span>AML Spec.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</body></html>

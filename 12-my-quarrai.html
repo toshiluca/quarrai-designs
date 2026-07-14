@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quarrai — Design 12: My Quarrai (daily page)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#005EF5;--purple:#8B3FE8;--pink:#E8409B;--amber:#F5A524;--ink:#101828;--body:#475467;--line:#EAECF0;--bg:#F5F7FB;--soft:#EFF4FF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;color:var(--body);background:var(--bg);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{color:var(--ink);letter-spacing:-.01em}
+.top{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.top .in{max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:22px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;color:var(--ink)}
+.qmark{width:28px;height:28px}
+.tsearch{flex:1;max-width:460px;display:flex;background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:8px 14px;font-size:14px;color:#98A2B3}
+.spacer{flex:1}
+.btn{font-weight:600;font-size:13.5px;padding:9px 15px;border-radius:8px;cursor:pointer;border:1px solid var(--line);background:#fff;font-family:inherit;color:var(--ink)}
+.btn.blue{background:var(--blue);border-color:var(--blue);color:#fff}
+.avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--pink));color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:26px 24px 60px}
+.greet{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:18px;flex-wrap:wrap}
+.greet h1{font-size:26px}
+.greet p{font-size:14px;margin-top:4px}
+.mode{display:flex;background:#fff;border:1px solid var(--line);border-radius:10px;padding:4px;gap:4px}
+.mode button{border:0;background:transparent;font-family:inherit;font-weight:600;font-size:13px;padding:8px 16px;border-radius:7px;cursor:pointer;color:var(--body)}
+.mode button.on{background:var(--ink);color:#fff}
+/* snapshot strip */
+.snapshot{background:#0B1220;border-radius:16px;padding:22px;margin-bottom:22px}
+.snapshot h2{color:#fff;font-size:15px;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.snapshot h2 .dot{width:8px;height:8px;border-radius:50%;background:#4ADE80;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.devs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.dev{background:#131C31;border:1px solid #24304D;border-radius:11px;padding:14px;cursor:pointer;transition:.15s}
+.dev:hover{border-color:var(--blue)}
+.dev .t{font-size:10.5px;font-weight:700;letter-spacing:.06em;margin-bottom:7px}
+.dev b{color:#fff;font-size:13px;line-height:1.4;display:block;margin-bottom:5px}
+.dev span{color:#9DB0D6;font-size:12px;line-height:1.45}
+/* widget grid */
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.widget{background:#fff;border:1px solid var(--line);border-radius:15px;padding:20px;display:none}
+.widget.show{display:block}
+.widget h3{font-size:14.5px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
+.widget h3 .k{font-size:11px;font-weight:700;letter-spacing:.05em;padding:3px 9px;border-radius:5px}
+.k.kn{background:var(--soft);color:var(--blue)}.k.ln{background:#F3EEFF;color:var(--purple)}.k.gm{background:#FFF6E6;color:#B77B0B}.k.cm{background:#E8FAF5;color:#0E8A6D}
+.row{padding:10px 0;border-top:1px solid var(--bg);font-size:13.5px;line-height:1.45;display:flex;gap:10px;align-items:flex-start}
+.row:first-of-type{border-top:0}
+.row b{color:var(--ink);font-weight:600}
+.row small{color:#98A2B3;display:block;margin-top:2px;font-size:12px}
+.pb{height:6px;border-radius:99px;background:var(--bg);overflow:hidden;margin-top:7px}
+.pb i{display:block;height:100%;border-radius:99px}
+.playbtn{width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;border:0;cursor:pointer;flex-shrink:0;font-size:11px}
+.statrow{display:flex;gap:12px;text-align:center}
+.stat{flex:1;background:var(--bg);border-radius:11px;padding:14px 8px}
+.stat .n{font-size:21px;font-weight:800;color:var(--ink)}
+.stat .t{font-size:11px;margin-top:2px}
+.ce .cert{margin-bottom:12px}
+.ce .cert .lbl{display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:var(--ink)}
+.ce .cert small{color:#98A2B3;font-size:11.5px}
+/* customize drawer */
+.drawer{position:fixed;right:-320px;top:0;bottom:0;width:300px;background:#fff;border-left:1px solid var(--line);box-shadow:-14px 0 40px rgba(16,24,40,.08);z-index:10;transition:right .25s;padding:22px}
+.drawer.open{right:0}
+.drawer h3{font-size:16px;margin-bottom:6px}
+.drawer p{font-size:12.5px;margin-bottom:16px}
+.opt{display:flex;align-items:center;gap:10px;padding:11px 4px;border-bottom:1px solid var(--bg);font-size:14px;color:var(--ink);font-weight:500;cursor:pointer}
+.opt input{width:16px;height:16px;accent-color:var(--blue)}
+footer{max-width:1240px;margin:0 auto;padding:0 24px 40px;text-align:center;color:#98A2B3;font-size:13px}
+.note{background:#FFFBEB;border:1px solid #FDE68A;color:#92400E;border-radius:10px;padding:10px 16px;font-size:12.5px;margin-bottom:18px}
+@media(max-width:960px){.devs{grid-template-columns:1fr 1fr}.wgrid{grid-template-columns:1fr}}
+</style></head>
+<body>
+
+<div class="top"><div class="in">
+  <div class="logo"><svg class="qmark" viewBox="0 0 100 100"><defs><linearGradient id="q1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#005EF5"/><stop offset=".5" stop-color="#8B3FE8"/><stop offset="1" stop-color="#E8409B"/></linearGradient></defs><text x="50" y="74" font-family="Inter" font-weight="800" font-size="82" text-anchor="middle" fill="url(#q1)">Q</text></svg>Quarrai</div>
+  <div class="tsearch">🔍&nbsp; Search everything…</div>
+  <div class="spacer"></div>
+  <button class="btn" onclick="document.getElementById('drawer').classList.toggle('open')">⚙ Customize my page</button>
+  <div class="avatar">KF</div>
+</div></div>
+
+<div class="wrap">
+  <div class="note">Concept note: this is the <b>daily page</b> a member lands on after login — distinct from the public homepage (concept 11). Try the <b>view toggle</b> (persona-aware layout) and <b>Customize my page</b> (user-selected widgets).</div>
+
+  <div class="greet">
+    <div><h1 id="hello">Good morning, Kim.</h1><p id="sub">Here’s your day at a glance — 4 developments, 1 course in progress, 2 new episodes.</p></div>
+    <div class="mode"><button id="m-analyst" class="on" onclick="setMode('analyst')">Analyst view</button><button id="m-exec" onclick="setMode('exec')">Executive view</button></div>
+  </div>
+
+  <div class="snapshot">
+    <h2><span class="dot"></span>WHAT MATTERS TODAY</h2>
+    <div class="devs">
+      <div class="dev"><div class="t" style="color:#8FB2FF">ENFORCEMENT</div><b>FinCEN penalizes midwest MSB $12M</b><span>Independent-testing gaps cited — relevant to your saved topics.</span></div>
+      <div class="dev"><div class="t" style="color:#C9A7FF">RULEMAKING</div><b>CVC mixing rule comment period opens</b><span>60-day window; affects crypto MSB clients.</span></div>
+      <div class="dev"><div class="t" style="color:#FF9AC9">SANCTIONS</div><b>OFAC designates 14-entity evasion network</b><span>New shipping and front-company red flags.</span></div>
+      <div class="dev"><div class="t" style="color:#FFD07A">GUIDANCE</div><b>FFIEC updates CDD exam sections</b><span>Effectiveness framing continues.</span></div>
+    </div>
+  </div>
+
+  <div class="wgrid">
+    <div class="widget" id="w-feed"><h3>My feed <span class="k kn">KNOWLEDGE</span></h3>
+      <div class="row"><div><b>The consent order, annotated — what failed and why</b><small>Analysis · 8 min read · 4.9★</small></div></div>
+      <div class="row"><div><b>Travel Rule interoperability: state of play</b><small>Article · 12 min read · matches “crypto MSB”</small></div></div>
+      <div class="row"><div><b>Beneficial ownership after the BOI narrowing</b><small>Explainer · 6 min read · trending</small></div></div>
+    </div>
+
+    <div class="widget" id="w-pods"><h3>Podcast queue <span class="k kn">LISTEN</span></h3>
+      <div class="row"><button class="playbtn">▶</button><div><b>Ep. 41 — FinCEN’s new guidance, explained</b><small>The Quarrai Weekly · 31 min · new</small></div></div>
+      <div class="row"><button class="playbtn">▶</button><div><b>Laundering through gaming platforms</b><small>This Week in FinCrime · 45 min</small></div></div>
+      <div class="row" style="border-top:1px solid var(--bg);padding-top:12px"><div style="font-size:12.5px;color:#0E8A6D;font-weight:600">🎧 Listen + submit a takeaway → earn 0.5 CE credits</div></div>
+    </div>
+
+    <div class="widget" id="w-learn"><h3>Continue learning <span class="k ln">LEARNING</span></h3>
+      <div class="row"><div style="flex:1"><b>Blockchain Forensics Fundamentals</b><small>Module 4 of 6 · TRM Academy</small><div class="pb"><i style="width:64%;background:var(--purple)"></i></div></div></div>
+      <div class="row"><div style="flex:1"><b>Sanctions Screening Deep Dive</b><small>Module 1 of 8 · 2 CE on completion</small><div class="pb"><i style="width:12%;background:var(--purple)"></i></div></div></div>
+    </div>
+
+    <div class="widget" id="w-ce"><h3>My credits <span class="k ln">CE / CPE</span></h3>
+      <div class="ce">
+        <div class="cert"><div class="lbl"><span>CAMS recertification</span><span>42 / 60</span></div><small>Due Mar 2027 · on pace</small><div class="pb"><i style="width:70%;background:var(--blue)"></i></div></div>
+        <div class="cert"><div class="lbl"><span>CFE annual CPE</span><span>9 / 20</span></div><small>Due Dec 2026 · 3 behind pace</small><div class="pb"><i style="width:45%;background:var(--amber)"></i></div></div>
+      </div>
+      <button class="btn" style="width:100%">Open credit tracker →</button>
+    </div>
+
+    <div class="widget" id="w-comm"><h3>Community <span class="k cm">Q&amp;A</span></h3>
+      <div class="row"><div><b>“Do FBO account structures require beneficial-owner CDD at the sub-account level?”</b><small>3 expert answers · top answer 94% useful ✓</small></div></div>
+      <div class="row"><div><b>“Best practice for documenting a customer exit decision?”</b><small>Awaiting expert review · 7 community votes</small></div></div>
+    </div>
+
+    <div class="widget" id="w-game"><h3>My progress <span class="k gm">REWARDS</span></h3>
+      <div class="statrow">
+        <div class="stat"><div class="n">1,240</div><div class="t">Review points</div></div>
+        <div class="stat"><div class="n">17 🔥</div><div class="t">Day streak</div></div>
+        <div class="stat"><div class="n">6</div><div class="t">Badges</div></div>
+      </div>
+      <div class="row" style="margin-top:10px"><div><b>120 pts to “Podcast Pro”</b><small>Redeem points for premium articles &amp; course discounts</small></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="drawer" id="drawer">
+  <h3>Customize my page</h3>
+  <p>Pick the widgets that matter to you — your daily page, your call.</p>
+  <div id="opts"></div>
+</div>
+
+<footer>Quarrai · Design concept 12: “My Quarrai” — the member’s daily page (pairs with concept 11)</footer>
+
+<script>
+const WIDGETS=[["w-feed","My feed"],["w-pods","Podcast queue"],["w-learn","Continue learning"],["w-ce","My credits (CE/CPE)"],["w-comm","Community Q&A"],["w-game","My progress (rewards)"]];
+const state=Object.fromEntries(WIDGETS.map(w=>[w[0],true]));
+document.getElementById('opts').innerHTML=WIDGETS.map(w=>
+ `<label class="opt"><input type="checkbox" id="c-${w[0]}" checked onchange="state['${w[0]}']=this.checked;apply()">${w[1]}</label>`).join('');
+let mode='analyst';
+function setMode(m){
+  mode=m;
+  document.getElementById('m-analyst').classList.toggle('on',m==='analyst');
+  document.getElementById('m-exec').classList.toggle('on',m==='exec');
+  if(m==='exec'){state['w-game']=false;state['w-pods']=true;
+    document.getElementById('sub').textContent='The snapshot: 4 developments flagged for your business, 2 team items need review.';}
+  else{state['w-game']=true;
+    document.getElementById('sub').textContent='Here’s your day at a glance — 4 developments, 1 course in progress, 2 new episodes.';}
+  WIDGETS.forEach(w=>document.getElementById('c-'+w[0]).checked=state[w[0]]);
+  apply();
+}
+function apply(){WIDGETS.forEach(w=>document.getElementById(w[0]).classList.toggle('show',state[w[0]]))}
+apply();
+</script>
+</body></html>

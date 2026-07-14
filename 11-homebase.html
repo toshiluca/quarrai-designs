@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quarrai — Design 11: Homebase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#005EF5;--purple:#8B3FE8;--pink:#E8409B;--amber:#F5A524;--ink:#101828;--body:#475467;--line:#EAECF0;--bg:#F9FAFB;--soft:#EFF4FF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;color:var(--body);background:#fff;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+h1,h2,h3{color:var(--ink);letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink)}
+.qmark{width:32px;height:32px}
+.navlinks{display:flex;gap:26px;font-weight:500;font-size:15px}
+.navlinks a:hover{color:var(--blue)}
+.btn{font-weight:600;font-size:15px;padding:10px 18px;border-radius:8px;cursor:pointer;border:0;font-family:inherit}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.solid{background:var(--blue);color:#fff}
+.btn.solid:hover{background:#004ad1}
+/* today strip — scrolling article snapshots, not a plain ticker */
+.today{background:#0B1220;padding:14px 0;overflow:hidden;position:relative}
+.today .lbl{position:absolute;left:0;top:0;bottom:0;z-index:2;display:flex;align-items:center;background:linear-gradient(90deg,#0B1220 70%,transparent);color:#fff;font-weight:700;font-size:13px;padding:0 28px 0 24px;letter-spacing:.05em}
+.rail{display:flex;gap:14px;animation:scroll 42s linear infinite;width:max-content;padding-left:190px}
+.today:hover .rail{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.snap{background:#131C31;border:1px solid #24304D;border-radius:10px;padding:10px 16px;min-width:290px;color:#E5EAF4;font-size:13.5px;line-height:1.45;cursor:pointer;transition:.15s}
+.snap:hover{border-color:var(--blue)}
+.snap .tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.06em;border-radius:4px;padding:2px 7px;margin-bottom:6px}
+.snap b{color:#fff;display:block;margin-bottom:2px}
+/* hero */
+.hero{text-align:center;padding:60px 0 26px}
+.hero .kicker{display:inline-block;background:var(--soft);color:var(--blue);font-weight:600;font-size:13px;padding:6px 14px;border-radius:999px;margin-bottom:20px}
+.hero h1{font-size:50px;line-height:1.06;font-weight:800;margin-bottom:16px}
+.hero h1 .g{background:linear-gradient(90deg,var(--blue),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:19px;max-width:620px;margin:0 auto 30px}
+.search{max-width:680px;margin:0 auto;display:flex;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:6px;box-shadow:0 8px 30px rgba(16,24,40,.07)}
+.search input{flex:1;border:0;outline:0;font-size:16px;padding:14px 16px;font-family:inherit}
+.search .btn.solid{border-radius:8px;padding:0 26px}
+/* quick tabs (from concept 5 — “better than three”) */
+.tabs{display:flex;gap:10px;justify-content:center;margin:22px 0 8px;flex-wrap:wrap}
+.tab{font-weight:600;font-size:14px;padding:9px 20px;border-radius:999px;border:1.5px solid var(--line);background:#fff;cursor:pointer;font-family:inherit;color:var(--body);transition:.15s}
+.tab:hover{border-color:var(--blue);color:var(--blue)}
+.tab.on{background:var(--blue);border-color:var(--blue);color:#fff}
+/* content grid fed by tabs */
+.feed{padding:26px 0 20px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{border:1px solid var(--line);border-radius:14px;padding:20px;transition:.18s;cursor:pointer;background:#fff}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 34px rgba(16,24,40,.09)}
+.card .chip{display:inline-block;font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:6px;margin-bottom:12px;letter-spacing:.04em}
+.chip.k{background:var(--soft);color:var(--blue)}
+.chip.l{background:#F3EEFF;color:var(--purple)}
+.chip.p{background:#FDEEF6;color:var(--pink)}
+.card h3{font-size:16.5px;line-height:1.35;margin-bottom:7px}
+.card p{font-size:13.5px;line-height:1.55}
+.card .meta{margin-top:14px;font-size:12.5px;color:#98A2B3;display:flex;justify-content:space-between}
+.card .meta b{color:var(--ink)}
+/* pillars */
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding:44px 0}
+.pcard{border:1px solid var(--line);border-radius:16px;padding:30px;border-top:5px solid var(--blue)}
+.pcard.l{border-top-color:var(--purple)}
+.pcard h3{font-size:22px;margin-bottom:6px}
+.tagk{color:var(--blue);font-weight:700;font-size:13px;letter-spacing:.06em}
+.tagl{color:var(--purple);font-weight:700;font-size:13px;letter-spacing:.06em}
+.pcard p{margin:10px 0 0;font-size:15px;line-height:1.6}
+/* podcast band — front and center per 7/10 call */
+.podband{background:linear-gradient(120deg,#0B1220,#14224A);color:#DCE4F5;border-radius:20px;padding:36px;display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center;margin:10px 0 50px}
+.podband h2{color:#fff;font-size:27px;margin-bottom:10px}
+.podband .k{color:#8FB2FF;font-weight:700;font-size:13px;letter-spacing:.07em}
+.podband p{font-size:15px;line-height:1.6;margin:10px 0 18px}
+.player{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:20px}
+.player .ep{font-weight:700;color:#fff;font-size:15.5px;margin-bottom:3px}
+.player .who{font-size:13px;color:#9DB0D6;margin-bottom:14px}
+.pbar{height:6px;border-radius:99px;background:rgba(255,255,255,.15);overflow:hidden;margin:12px 0 8px}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--purple));transition:width .3s linear}
+.ptime{display:flex;justify-content:space-between;font-size:12px;color:#9DB0D6}
+.play{width:46px;height:46px;border-radius:50%;background:var(--blue);color:#fff;border:0;font-size:17px;cursor:pointer;flex-shrink:0}
+.prow{display:flex;gap:16px;align-items:center}
+/* provider strip */
+.provider{border:1.5px dashed #C6D8FB;background:#F5F9FF;border-radius:16px;padding:26px 30px;display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:54px;flex-wrap:wrap}
+.provider h3{font-size:19px;margin-bottom:4px}
+.provider p{font-size:14px}
+/* proof */
+.proof{background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:40px 0;display:flex;justify-content:space-around;text-align:center;flex-wrap:wrap;gap:18px}
+.proof .n{font-size:34px;font-weight:800;color:var(--ink)}
+.proof .t{font-size:13.5px;margin-top:3px}
+footer{padding:44px 0;text-align:center;color:#98A2B3;font-size:14px}
+@media(max-width:860px){.grid,.pillars,.podband{grid-template-columns:1fr}.hero h1{font-size:36px}.navlinks{display:none}}
+</style></head>
+<body>
+
+<div class="today"><div class="lbl">TODAY&nbsp;·&nbsp;4 DEVELOPMENTS</div><div class="rail" id="rail"></div></div>
+
+<div class="wrap">
+  <nav>
+    <div class="logo"><svg class="qmark" viewBox="0 0 100 100"><defs><linearGradient id="q1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#005EF5"/><stop offset=".5" stop-color="#8B3FE8"/><stop offset="1" stop-color="#E8409B"/></linearGradient></defs><text x="50" y="74" font-family="Inter" font-weight="800" font-size="82" text-anchor="middle" fill="url(#q1)">Q</text></svg>Quarrai</div>
+    <div class="navlinks"><a>Explore</a><a>Podcasts</a><a>Learning</a><a>Providers</a><a>Pricing</a></div>
+    <div><button class="btn ghost">Log in</button> <button class="btn solid">Sign up free</button></div>
+  </nav>
+
+  <section class="hero">
+    <span class="kicker">The compliance professional’s homepage</span>
+    <h1>Everything compliance,<br><span class="g">in one place</span>.</h1>
+    <p>News, podcasts, training, and certifications — searchable, community-rated, and tracked for you.</p>
+    <div class="search"><input id="q" placeholder="Search AML, sanctions, crypto regulation, FinCEN…" oninput="render()"><button class="btn solid" onclick="render()">Search</button></div>
+    <div class="tabs" id="tabs"></div>
+  </section>
+
+  <section class="feed"><div class="grid" id="grid"></div></section>
+
+  <section class="podband">
+    <div>
+      <div class="k">THE QUARRAI WEEKLY&nbsp;·&nbsp;PODCAST</div>
+      <h2>The week in compliance, in 30 minutes.</h2>
+      <p>The four biggest developments, why they matter to your organization, and what landed on the platform this week — with a rotating guest from our top contributors.</p>
+      <button class="btn solid">Browse all podcasts</button>
+    </div>
+    <div class="player">
+      <div class="ep">Ep. 41 — FinCEN’s new guidance, explained</div>
+      <div class="who">with Carol Van Cleef · 31 min</div>
+      <div class="prow"><button class="play" id="play" onclick="toggle()">▶</button>
+        <div style="flex:1"><div class="pbar"><i id="fill"></i></div><div class="ptime"><span id="cur">0:00</span><span>31:04</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pillars" style="padding-top:0">
+    <div class="pcard"><span class="tagk">KNOWLEDGE</span><h3>Stay informed</h3><p>Trending and featured stories, enforcement analyses, podcasts, and regulatory alerts — curated daily and rated by the community, so the big things never get missed.</p></div>
+    <div class="pcard l"><span class="tagl">LEARNING</span><h3>Build skills</h3><p>Courses, certifications, and webinars from every provider in one searchable catalog — with learning paths built around your goals and CE/CPE credits tracked automatically.</p></div>
+  </section>
+
+  <section class="provider">
+    <div><h3>Providers &amp; presenters — get your content seen.</h3><p>List courses, conferences, and podcasts free. Premium listings with enhanced placement from $1.99/mo.</p></div>
+    <button class="btn solid">List your training</button>
+  </section>
+</div>
+
+<div class="proof">
+  <div><div class="n">300+</div><div class="t">Knowledge listings</div></div>
+  <div><div class="n">200+</div><div class="t">Courses &amp; certifications</div></div>
+  <div><div class="n">50+</div><div class="t">Content providers</div></div>
+  <div><div class="n">4.8★</div><div class="t">Loved by compliance professionals</div></div>
+</div>
+
+<footer>Quarrai — Compliance Knowledge &amp; Learning Platform · Design concept 11: “Homebase”</footer>
+
+<script>
+const DEV=[
+ ["#8FB2FF","ENFORCEMENT","FinCEN issues $12M penalty against midwest MSB","Willful BSA program failures cited"],
+ ["#C9A7FF","RULEMAKING","Treasury opens comment period on CVC mixing rule","Comments due in 60 days"],
+ ["#FF9AC9","SANCTIONS","OFAC designates 14 entities in evasion network","Shipping and front-company red flags"],
+ ["#FFD07A","GUIDANCE","FFIEC updates exam manual sections on CDD","Effectiveness over documentation"]];
+const rail=document.getElementById('rail');
+rail.innerHTML=[...DEV,...DEV].map(d=>`<div class="snap"><span class="tag" style="background:rgba(255,255,255,.08);color:${d[0]}">${d[1]}</span><b>${d[2]}</b>${d[3]}</div>`).join('');
+
+const ITEMS=[
+ {t:"trending",c:"k",cl:"Knowledge",h:"OFAC evasion network designations: the red flags to screen for now",p:"Ownership opacity, shipping documentation gaps, and the front-company patterns examiners expect you to catch.",m:["Analysis","4.9★ · 212 ratings"]},
+ {t:"trending",c:"k",cl:"Knowledge",h:"FinCEN’s $12M MSB penalty — what the consent order actually says",p:"Program failures, independent-testing gaps, and three lessons for small institutions.",m:["Enforcement","4.8★ · 167 ratings"]},
+ {t:"trending",c:"p",cl:"Podcast",h:"Ep. 41 — FinCEN’s new guidance, explained",p:"The week’s four biggest developments and why they matter to your organization.",m:["31 min","New this week"]},
+ {t:"featured",c:"l",cl:"Learning",h:"Blockchain Forensics Fundamentals",p:"A community-favorite starting point for on-chain investigation skills.",m:["Course · 6 CE","4.9★ · TRM Academy"]},
+ {t:"featured",c:"k",cl:"Knowledge",h:"White paper: AI in transaction monitoring — a practical governance framework",p:"Sponsored content · reviewed and rated by the Quarrai community.",m:["White paper","4.6★ · 89 ratings"]},
+ {t:"featured",c:"l",cl:"Learning",h:"Sanctions Compliance Certificate",p:"Compare the three leading sanctions certifications side by side before you commit.",m:["Certification","Compare 3 options"]},
+ {t:"podcasts",c:"p",cl:"Podcast",h:"This Week in FinCrime — laundering through gaming platforms",p:"45-minute deep dive with two former federal investigators.",m:["45 min","4.7★"]},
+ {t:"podcasts",c:"p",cl:"Podcast",h:"The Crypto Compliance Hour — Travel Rule interoperability",p:"Where the protocols stand and what MSBs should implement today.",m:["52 min","4.8★"]},
+ {t:"podcasts",c:"p",cl:"Podcast",h:"Ep. 40 — Beneficial ownership after the BOI narrowing",p:"What still applies, what changed, and the CDD implications.",m:["29 min","4.9★"]},
+ {t:"gems",c:"k",cl:"Knowledge",h:"The 2019 consent order everyone forgets — and why it still matters",p:"A community-surfaced gem: the case that quietly defined program-effectiveness expectations.",m:["Community pick","💎 Gem"]},
+ {t:"gems",c:"l",cl:"Learning",h:"Free FFIEC BSA/AML self-paced modules",p:"Zero-cost, examiner-authored training most people don’t know exists.",m:["Free course","💎 Gem"]},
+ {t:"gems",c:"k",cl:"Knowledge",h:"A one-page SAR narrative checklist that actually works",p:"The most-bookmarked job aid on the platform this quarter.",m:["Job aid","💎 Gem"]}];
+const TABS=[["trending","Trending"],["featured","Featured"],["podcasts","Podcasts"],["gems","Gems"]];
+let cur="trending";
+document.getElementById('tabs').innerHTML=TABS.map(t=>`<button class="tab" id="tab-${t[0]}" onclick="setTab('${t[0]}')">${t[1]}</button>`).join('');
+function setTab(t){cur=t;render()}
+function render(){
+  const q=document.getElementById('q').value.toLowerCase();
+  TABS.forEach(t=>document.getElementById('tab-'+t[0]).classList.toggle('on',t[0]===cur));
+  const items=ITEMS.filter(i=>i.t===cur&&(!q||(i.h+i.p).toLowerCase().includes(q)));
+  document.getElementById('grid').innerHTML=items.length?items.map(i=>
+    `<div class="card"><span class="chip ${i.c}">${i.cl}</span><h3>${i.h}</h3><p>${i.p}</p><div class="meta"><b>${i.m[0]}</b><span>${i.m[1]}</span></div></div>`).join('')
+    :'<div style="grid-column:1/-1;text-align:center;padding:30px;color:#98A2B3">No matches in this section — try another tab.</div>';
+}
+render();
+let playing=false,t=0,timer;
+function toggle(){
+  playing=!playing;document.getElementById('play').textContent=playing?'❚❚':'▶';
+  if(playing){timer=setInterval(()=>{t=Math.min(t+8,1864);
+    document.getElementById('fill').style.width=(t/1864*100)+'%';
+    document.getElementById('cur').textContent=Math.floor(t/60)+':'+String(t%60).padStart(2,'0');
+    if(t>=1864)toggle();},400);}
+  else clearInterval(timer);
+}
+</script>
+</body></html>

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quarrai — Design 14: The Exchange (community Q&amp;A)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#005EF5;--purple:#8B3FE8;--pink:#E8409B;--green:#0E8A6D;--ink:#101828;--body:#475467;--line:#EAECF0;--bg:#F5F7FB;--soft:#EFF4FF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;color:var(--body);background:var(--bg);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{color:var(--ink);letter-spacing:-.01em}
+.top{background:#fff;border-bottom:1px solid var(--line)}
+.top .in{max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:20px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;color:var(--ink)}
+.qmark{width:28px;height:28px}
+.crumb{font-size:13.5px;color:#98A2B3}.crumb b{color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:30px 24px 60px}
+.head{text-align:center;margin-bottom:26px}
+.head h1{font-size:29px;margin-bottom:8px}
+.head p{font-size:15.5px;max-width:640px;margin:0 auto}
+.cols{display:grid;grid-template-columns:1.5fr .8fr;gap:20px;align-items:start}
+.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:20px}
+.panel>h2{font-size:15.5px;margin-bottom:14px}
+/* ask box */
+.ask{background:linear-gradient(120deg,#0B1220,#1A1233);border-radius:16px;padding:24px;margin-bottom:20px}
+.ask h2{color:#fff;font-size:18px;margin-bottom:5px}
+.ask p{color:#9DB0D6;font-size:13.5px;margin-bottom:14px}
+.ask .bar{display:flex;background:#fff;border-radius:10px;padding:5px;gap:5px}
+.ask input{flex:1;border:0;outline:0;font-size:14.5px;padding:11px 14px;font-family:inherit}
+.btn{font-weight:600;font-size:13px;padding:9px 16px;border-radius:8px;cursor:pointer;border:1px solid var(--line);background:#fff;font-family:inherit;color:var(--ink)}
+.btn.blue{background:var(--blue);border-color:var(--blue);color:#fff}
+/* answer flow */
+.flow{display:none;margin-top:16px}
+.ai{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:16px}
+.ai .who{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+.ai .who .b{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--blue),var(--purple));display:grid;place-items:center;font-size:15px}
+.ai .who b{color:#fff;font-size:13.5px}
+.ai .who small{color:#9DB0D6;font-size:11.5px;display:block}
+.ai p{color:#DCE4F5;font-size:13.5px;line-height:1.6;margin:0 0 12px}
+.vote{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.vote button{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#DCE4F5;border-radius:8px;padding:7px 13px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit}
+.vote button.on{background:var(--green);border-color:var(--green);color:#fff}
+.vote .score{font-size:12px;color:#9DB0D6}
+.escal{margin-top:11px;font-size:12.5px;color:#8FB2FF}
+/* question list */
+.q{border-top:1px solid var(--bg);padding:15px 0}
+.q:first-of-type{border-top:0;padding-top:0}
+.q h3{font-size:14.5px;line-height:1.4;margin-bottom:7px}
+.q .meta{display:flex;gap:14px;font-size:12px;color:#98A2B3;flex-wrap:wrap;align-items:center}
+.tag{font-size:10.5px;font-weight:700;letter-spacing:.04em;padding:3px 8px;border-radius:5px;background:var(--soft);color:var(--blue)}
+.useful{color:var(--green);font-weight:600}
+.pend{color:#B77B0B;font-weight:600}
+/* experts */
+.exp{display:flex;gap:12px;align-items:center;border-top:1px solid var(--bg);padding:12px 0}
+.exp:first-of-type{border-top:0;padding-top:0}
+.av{width:38px;height:38px;border-radius:50%;color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px;flex-shrink:0}
+.exp b{color:var(--ink);font-size:13.5px;display:flex;align-items:center;gap:5px}
+.exp small{font-size:12px;color:#98A2B3;display:block}
+.check{color:var(--blue);font-size:13px}
+.exp .n{margin-left:auto;text-align:right;font-size:12px;color:#98A2B3}
+.exp .n b{display:block;font-size:15px;color:var(--ink)}
+/* leaderboard */
+.lb{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.lb button{border:1px solid var(--line);background:#fff;border-radius:99px;font-family:inherit;font-size:12px;font-weight:600;color:var(--body);padding:7px 13px;cursor:pointer}
+.lb button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.row{display:flex;gap:11px;align-items:center;border-top:1px solid var(--bg);padding:10px 0;font-size:13px}
+.row:first-of-type{border-top:0}
+.row .rank{width:22px;font-weight:800;color:#98A2B3;font-size:12px}
+.row b{color:var(--ink)}
+.row small{display:block;font-size:11.5px;color:#98A2B3}
+.row .pts{margin-left:auto;font-weight:700;color:var(--ink);font-size:12.5px}
+/* jobs strip */
+.jobs{border:1.5px dashed #C6D8FB;background:#F5F9FF;border-radius:16px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.jobs h3{font-size:16.5px;margin-bottom:3px}
+.jobs p{font-size:13.5px}
+.note{background:#FFFBEB;border:1px solid #FDE68A;color:#92400E;border-radius:10px;padding:10px 16px;font-size:12.5px;margin-bottom:20px}
+footer{max-width:1180px;margin:0 auto;padding:0 24px 40px;text-align:center;color:#98A2B3;font-size:13px}
+@media(max-width:920px){.cols{grid-template-columns:1fr}}
+</style></head>
+<body>
+
+<div class="top"><div class="in">
+  <div class="logo"><svg class="qmark" viewBox="0 0 100 100"><defs><linearGradient id="q1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#005EF5"/><stop offset=".5" stop-color="#8B3FE8"/><stop offset="1" stop-color="#E8409B"/></linearGradient></defs><text x="50" y="74" font-family="Inter" font-weight="800" font-size="82" text-anchor="middle" fill="url(#q1)">Q</text></svg>Quarrai</div>
+  <div class="crumb">Community &nbsp;/&nbsp; <b>The Exchange</b></div>
+</div></div>
+
+<div class="wrap">
+  <div class="note">Concept note: the community model from the 7/10 call — ask a question, an AI answer comes back first, the community rates usefulness, and <b>verified experts</b> weigh in. Leaderboards say what someone is a top contributor <b>of</b>. Try asking a question and voting.</div>
+
+  <div class="head">
+    <h1>Ask the people who do this every day.</h1>
+    <p>Real questions from working compliance professionals — answered fast by AI, validated by the community, settled by verified experts.</p>
+  </div>
+
+  <div class="ask">
+    <h2>What are you trying to figure out?</h2>
+    <p>An answer in seconds. Community and expert review after that.</p>
+    <div class="bar"><input id="q" placeholder="e.g., Do FBO sub-accounts need beneficial-owner CDD?" onkeydown="if(event.key==='Enter')ask()"><button class="btn blue" onclick="ask()">Ask</button></div>
+    <div class="flow" id="flow">
+      <div class="ai">
+        <div class="who"><div class="b">⛏️</div><div><b>First answer · Quarrai AI</b><small>Instant draft — rate it, and it goes to expert review</small></div></div>
+        <p id="aitext"></p>
+        <div class="vote">
+          <button id="v-up" onclick="vote(true)">👍 Useful</button>
+          <button id="v-dn" onclick="vote(false)">👎 Not useful</button>
+          <span class="score" id="score">Community: 12 votes so far · 83% useful</span>
+        </div>
+        <div class="escal" id="escal">→ Routed to 3 verified experts in <b>BSA/AML</b>. Expert answers typically land within a day.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cols">
+    <div>
+      <div class="panel">
+        <h2>Active questions</h2>
+        <div class="q"><h3>Do FBO account structures require beneficial-owner CDD at the sub-account level?</h3>
+          <div class="meta"><span class="tag">BSA/AML</span><span>3 expert answers</span><span class="useful">✓ Top answer 94% useful</span><span>41 followers</span></div></div>
+        <div class="q"><h3>Best practice for documenting a customer exit decision so it holds up in an exam?</h3>
+          <div class="meta"><span class="tag">CDD / EDD</span><span>1 expert answer</span><span class="pend">● 2 more experts reviewing</span><span>27 followers</span></div></div>
+        <div class="q"><h3>Travel Rule: how are people handling counterparty VASPs that can’t receive data yet?</h3>
+          <div class="meta"><span class="tag" style="background:#F3EEFF;color:#8B3FE8">Crypto</span><span>AI answer · 76% useful</span><span class="pend">● Awaiting expert review</span><span>19 followers</span></div></div>
+        <div class="q"><h3>Is a standalone OFAC risk assessment expected for a small MSB, or can it live inside the BSA risk assessment?</h3>
+          <div class="meta"><span class="tag" style="background:#FDEEF6;color:#E8409B">Sanctions</span><span>2 expert answers</span><span class="useful">✓ Consensus reached</span><span>33 followers</span></div></div>
+      </div>
+
+      <div class="jobs">
+        <div><h3>Compliance careers, coming soon.</h3><p>Roles from firms who already trust the community — matched to your certifications and learning paths.</p></div>
+        <button class="btn blue">Get notified</button>
+      </div>
+    </div>
+
+    <div>
+      <div class="panel">
+        <h2>Verified experts</h2>
+        <div class="exp"><div class="av" style="background:linear-gradient(135deg,#005EF5,#8B3FE8)">CV</div>
+          <div><b>Carol V. <span class="check">✓</span></b><small>Sanctions · Crypto · 30+ yrs</small></div>
+          <div class="n"><b>4.9★</b>212 answer ratings</div></div>
+        <div class="exp"><div class="av" style="background:linear-gradient(135deg,#8B3FE8,#E8409B)">MR</div>
+          <div><b>Marcus R. <span class="check">✓</span></b><small>Former IRS Title 31 examiner</small></div>
+          <div class="n"><b>4.8★</b>147 answer ratings</div></div>
+        <div class="exp"><div class="av" style="background:linear-gradient(135deg,#E8409B,#F5A524)">AL</div>
+          <div><b>Ana L. <span class="check">✓</span></b><small>BSA Officer, multi-state MSB</small></div>
+          <div class="n"><b>4.8★</b>121 answer ratings</div></div>
+        <div style="font-size:12px;color:#98A2B3;margin-top:12px">Experts are screened and credential-verified. Their reputation is their reward — every answer is rated.</div>
+      </div>
+
+      <div class="panel">
+        <h2>Top contributors — this week</h2>
+        <div class="lb" id="lbtabs"></div>
+        <div id="lbrows"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>Quarrai · Design concept 14: “The Exchange” — community Q&amp;A, verified experts, and role-specific leaderboards</footer>
+
+<script>
+function ask(){
+  const q=document.getElementById('q').value.trim();
+  if(!q)return;
+  document.getElementById('flow').style.display='block';
+  document.getElementById('aitext').textContent='Short answer: it depends on who the customer is. For an FBO structure, your customer is the account holder — but if sub-account activity is functionally direct customer activity, examiners increasingly expect risk-based visibility below the FBO layer. Document the rationale either way: your risk assessment should state explicitly where CDD stops and why. (Draft answer based on the question: “'+q+'” — rate it below.)';
+  document.getElementById('v-up').classList.remove('on');document.getElementById('v-dn').classList.remove('on');
+  document.getElementById('score').textContent='Community: 12 votes so far · 83% useful';
+}
+let voted=false;
+function vote(up){
+  if(voted)return;voted=true;
+  document.getElementById(up?'v-up':'v-dn').classList.add('on');
+  document.getElementById('score').textContent=up?'Community: 13 votes · 85% useful — thanks, your vote sharpens the answer.':'Community: 13 votes · 77% useful — flagged; expert review prioritized.';
+}
+const BOARDS={
+ 'Course reviews':[["JT","Jordan T.","38 course reviews this week","2,410"],["PS","Priya S.","31 reviews · Learning pillar","2,140"],["DW","Dana W.","26 reviews · certifications focus","1,890"]],
+ 'AML answers':[["AL","Ana L.","14 accepted answers · BSA/AML","1,960"],["MR","Marcus R.","11 accepted answers · exams","1,720"],["KO","Kwame O.","9 accepted answers · MSB ops","1,510"]],
+ 'Sanctions':[["CV","Carol V.","12 accepted answers · sanctions","2,050"],["RB","Rita B.","8 accepted answers · screening","1,340"],["HN","Hana N.","6 accepted answers · evasion typologies","1,120"]]};
+const cols=["#005EF5","#8B3FE8","#E8409B"];
+let cur='Course reviews';
+document.getElementById('lbtabs').innerHTML=Object.keys(BOARDS).map(k=>`<button id="lb-${k.replace(/ /g,'_')}" onclick="setLb('${k}')">${k}</button>`).join('');
+function setLb(k){cur=k;
+  Object.keys(BOARDS).forEach(b=>document.getElementById('lb-'+b.replace(/ /g,'_')).classList.toggle('on',b===cur));
+  document.getElementById('lbrows').innerHTML=BOARDS[k].map((r,i)=>
+   `<div class="row"><div class="rank">#${i+1}</div><div class="av" style="width:32px;height:32px;font-size:11px;background:linear-gradient(135deg,${cols[i%3]},#101828)">${r[0]}</div><div><b>${r[1]}</b><small>${r[2]}</small></div><div class="pts">${r[3]} pts</div></div>`).join('');
+}
+setLb(cur);
+</script>
+</body></html>
